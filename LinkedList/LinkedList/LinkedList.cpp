@@ -22,7 +22,7 @@ int main()
     iter = root;
     cout << iter->x<<endl;
     iter = iter->next;
-    cout << iter->x << endl;
+    cout << iter->x << endl; 
 
 }
 
