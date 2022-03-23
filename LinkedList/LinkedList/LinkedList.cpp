@@ -11,12 +11,13 @@ typedef n node;
 
 void readNode(node * r) 
 {
+    int i = 0;
     while (r!=NULL)
     {
-        int i = 1;
         cout << i << ".nci :" << r->x << endl;
-        r=r->next;
-        i++;
+       i++; 
+       r=r->next;
+        
     }
 }
 void addNode(node* r, int x) 
@@ -36,12 +37,32 @@ int main()
     root = (node*)malloc(sizeof(node));
     root->next = NULL;
     root -> x = 100;
-   
-    for (int i = 1; i < 5; i++) 
+    
+    for (int i = 1; i < 5; i++)
     {
         addNode(root, i * 10);
     }
     readNode(root);
+    cout << "----" << endl;
+
+    node* iter;
+    iter = root;
+    node* temp;
+    temp  = (node*)malloc(sizeof(node));
+    
+    for (int i = 0; i < 3; i++)
+    {
+        iter = iter->next;
+    }
+     
+    temp->next = iter->next;
+    iter->next = temp;
+    temp->x = 25;
+    
+    readNode(root);
+
+
+   
 }  
 
 
