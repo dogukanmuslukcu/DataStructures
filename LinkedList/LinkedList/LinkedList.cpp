@@ -8,7 +8,6 @@ struct n
 	n* next;
 };
 typedef n node;
-
 void readNode(node* r)
 {
 	int i = 1;
@@ -17,32 +16,47 @@ void readNode(node* r)
 		cout << i << ". node's value : " << r->x << endl;
 		i++;
 		r = r->next;
-
 	}
+	cout << endl;
 }
-void addNode(node* r, int x)
+node* removeNode(node* r, int x)
 {
-	while (r->next != NULL)
+	node* iter = r;
+	node* temp;
+	if (r->x == x)
 	{
-		r = r->next;
+		temp = r;
+	    r = r->next;	
+		free(temp);
+		return r;
 	}
-	r->next = (node*)malloc(sizeof(node));
-	r->next->x = x;
-	r->next->next = NULL;
+	while (iter->next != NULL && iter->next->x != x)
+	{
+		iter = iter->next;
+	}
+	if (iter->next == NULL)
+	{
+		cout << "value not found in list" << endl;
+		return r;
+	}
+	temp = iter->next;
+	iter->next = iter->next->next;
+	free(temp);
+	return r;
 
 }
 node* sequentiallyAddNode(node* r, int x)
 {
 	if (r == NULL)
 	{
-		r = (node*)malloc(sizeof(node*));
+		r = (node*)malloc(sizeof(node));
 		r->next = NULL;
 		r->x = x;
 		return r;
 	}
 	else if (r->x > x)
 	{
-		node* temp = (node*)malloc(sizeof(node*));
+		node* temp = (node*)malloc(sizeof(node));
 		temp->x = x;
 		temp->next = r;
 		r = temp;
@@ -66,14 +80,20 @@ int main()
 
 	node* root;
 	root = NULL;
-	root = sequentiallyAddNode(root, 150);
-	root = sequentiallyAddNode(root, 5);
-	root = sequentiallyAddNode(root, 3);
-	root = sequentiallyAddNode(root, 1150);
+	root = sequentiallyAddNode(root, 400);
+	root = sequentiallyAddNode(root, 40);
 	root = sequentiallyAddNode(root, 4);
-	root = sequentiallyAddNode(root, 250);
-	root = sequentiallyAddNode(root, 10);
-    readNode(root);
+	root = sequentiallyAddNode(root, 450);
+	root = sequentiallyAddNode(root, 50);
+	readNode(root);
+	root = removeNode(root, 50);
+	readNode(root);
+	root = removeNode(root, 999);
+	readNode(root);
+	root = removeNode(root, 4);
+	readNode(root);
+	root = removeNode(root, 450);
+	readNode(root);
 
 
 }
