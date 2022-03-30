@@ -75,7 +75,6 @@ node* sequentiallyAddNode(node* r, int x)
 		node* temp = (node*)malloc(sizeof(node));
 		temp->x = x;
 		temp->next = r;
-		r = temp;
 		return temp;
 	}
 	node* iter = r;
