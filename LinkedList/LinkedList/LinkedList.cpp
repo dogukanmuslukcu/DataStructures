@@ -19,6 +19,22 @@ void readNode(node* r)
 	}
 	cout << endl;
 }
+void addNode(node* r, int x)
+{
+	if (r == NULL) 
+	{
+		r = (node*)malloc(sizeof(node));
+		r->next = NULL;
+		r->x = x;
+	}
+	while (r->next!=NULL)
+	{
+		r = r->next;
+	}
+	r->next = (node*)malloc(sizeof(node));
+	r->next->next = NULL;
+	r->next->x = x;
+}
 node* removeNode(node* r, int x)
 {
 	node* iter = r;
