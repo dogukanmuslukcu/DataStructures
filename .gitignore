@@ -363,3 +363,5 @@ MigrationBackup/
 FodyWeavers.xsd
 /StackUsingList/StackUsingList/StackUsingList.vcxproj.filters
 /StackUsingList/StackUsingList/StackUsingList.vcxproj
+/BinarySearchTree/BinarySearchTree/BinarySearchTree.vcxproj.filters
+/BinarySearchTree/BinarySearchTree/BinarySearchTree.vcxproj
