@@ -25,26 +25,73 @@ node* insertion(node* r, int data)
 	}
 	return r;
 }
-int findNode(node* r, int data) 
-{   if (r == NULL) 
-	 {
-		 return -1;
-	 }
-	if (r->data == data) 
+int search(node* r, int data)
+{
+	if (r == NULL)
+	{
+		return -1;
+	}
+	if (r->data == data)
 	{
 		return 1;
 	}
-	if (findNode(r->rightChild, data) == 1) 
+	if (search(r->rightChild, data) == 1)
 	{
 		return 1;
 	}
-	if (findNode(r->leftChild, data) == 1)
+	if (search(r->leftChild, data) == 1)
 	{
 		return 1;
 	}
-	 
-	 return -1;
-		 
+
+	return -1;
+
+}
+node* deletion(node* r, int data)
+{
+	if (r == NULL)
+	{
+		return NULL;
+	}
+	if (r->data == data)
+	{
+		if (r->leftChild == NULL && r->rightChild == NULL)
+		{
+			return NULL;
+		}
+		if (r->leftChild != NULL)
+		{
+			r->data = max(r->leftChild);
+			r->leftChild = deletion(r->leftChild, max(r->leftChild));
+			return r;
+		}
+		r->data = min(r->rightChild);
+		r->rightChild = deletion(r->rightChild, min(r->rightChild));
+		return r;
+	}
+	if (data > r->data)
+	{
+		r->rightChild = deletion(r->rightChild, data);
+		return r;
+	}
+	r->leftChild = deletion(r->leftChild, data);
+	return r;
+}
+int max(node* r)
+{
+	while (r->leftChild != NULL)
+	{
+		r = r->leftChild;
+	}
+	return r->data;
+}
+int min(node* r)
+{
+	while (r->rightChild != NULL)
+	{
+		r = r->rightChild;
+	}
+	return r->data;
 }
 void traversal_LNR(node* r)
 {

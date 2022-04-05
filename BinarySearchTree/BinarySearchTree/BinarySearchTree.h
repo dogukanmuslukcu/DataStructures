@@ -1,6 +1,6 @@
 #ifndef BinarySearchTree
 #define BinarySearchTree
-struct n 
+struct n
 {
 	int data;
 	n* leftChild;
@@ -8,8 +8,12 @@ struct n
 };
 typedef n node;
 node* insertion(node* r, int data);
-void traversal_LNR(node* r);
-void traversal_NLR(node* r);
-void traversal_LRN(node* r);
-int findNode(node* r, int data);
+node* deletion(node*, int);
+int search(node*, int);
+void traversal_LNR(node*);
+void traversal_NLR(node*);
+void traversal_LRN(node*);
+int min(node*);
+int max(node*);
+
 #endif 
