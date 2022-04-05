@@ -19,21 +19,22 @@ int main()
 	root = insertion(root, -1);
 	traversal_LNR(root);
 	cout << endl;
-	/*cout << search(root, 213) << endl;
+	cout << search(root, 213) << endl;
 	cout << search(root, 200) << endl;
-	cout << search(root, 2115)<< endl;
-	cout << search(root, 18)  << endl;
-	cout << search(root, 12)  << endl;
-	cout << search(root, 23)  << endl;
-	cout << search(root, 28)  << endl;
+	cout << search(root, 2115) << endl;
+	cout << search(root, 18) << endl;
+	cout << search(root, 12) << endl;
+	cout << search(root, 23) << endl;
+	cout << search(root, 28) << endl;
 	cout << min(root) << endl;
-	cout << max(root) << endl;*/
+	cout << max(root) << endl;
 	root = deletion(root, 200);
+	traversal_LNR(root);
 	root = deletion(root, 213);
 	traversal_LNR(root);
-	
 
-	
+
+
 }
 
 

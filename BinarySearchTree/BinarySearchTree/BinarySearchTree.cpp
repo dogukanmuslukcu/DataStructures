@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "BinarySearchTree.h"
 using namespace std;
-node* insertion(node* r, int data)
+node* insertion(node* r, int data)//add node to the given tree
 {
 	if (r == NULL)
 	{
@@ -49,11 +49,11 @@ int search(node* r, int data)
 }
 node* deletion(node* r, int data)
 {
-	if (r == NULL)
+	if (r == NULL)// the first statu is that's the given tree is null
 	{
 		return NULL;
 	}
-	if (r->data == data)
+	if (r->data == data)// statu is that's the root of the given tree
 	{
 		if (r->leftChild == NULL && r->rightChild == NULL)
 		{
@@ -68,7 +68,7 @@ node* deletion(node* r, int data)
 		r->data = min(r->rightChild);
 		r->rightChild = deletion(r->rightChild, min(r->rightChild));
 		return r;
-	}
+	}//if data isn't root of the tree , find the data's tree which is a root of  the tree
 	if (data > r->data)
 	{
 		r->rightChild = deletion(r->rightChild, data);
